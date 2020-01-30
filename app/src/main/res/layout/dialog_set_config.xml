@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent" >
+
+    <TextView
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:id="@+id/tvTitle"
+        android:layout_height="52dp"
+        android:layout_width="match_parent"
+        android:text="방송 설정"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <!-- llChannelName 아래에 들어가야댐 윗줄-->
+    <LinearLayout
+        android:id="@+id/llChannelName"
+        android:layout_below="@id/tvTitle"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:padding="10dp">
+        <TextView
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="방 제목"
+            android:textSize="17dp"/>
+
+        <EditText
+            android:id="@+id/etChannelName"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:paddingLeft="5dp"/>
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_above="@id/btnOk"
+        android:layout_below="@id/llChannelName"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:visibility="invisible"
+        >
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <!--<com.remotemonster.sdk.core.SimulcastSpinner-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:gravity="right|center_vertical"/>-->
+            <RelativeLayout
+                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingRight="-20dp">
+                <Spinner
+                    android:entries="@array/videoCodecs"
+                    android:gravity="right|center_vertical"
+                    android:id="@+id/spVideoCodec"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="match_parent"
+                    android:layout_width="130dp"/>
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Video Codec"
+                    android:textSize="18sp"/>
+            </RelativeLayout>
+            <View
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="1dp"
+                android:layout_width="match_parent"/>
+
+            <RelativeLayout
+                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingRight="-20dp">
+                <Spinner
+                    android:entries="@array/audioCodecs"
+                    android:gravity="right|center_vertical"
+                    android:id="@+id/spAudioCodec"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="match_parent"
+                    android:layout_width="130dp"/>
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Audio Codec"
+                    android:textSize="18sp"/>
+            </RelativeLayout>
+            <View
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="1dp"
+                android:layout_width="match_parent"/>
+
+            <!-- Video Width -->
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:id="@+id/llVideoWidth"
+                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp">
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:text="Video Width"
+                    android:textSize="18sp"/>
+                <TextView
+                    android:id="@+id/tvVideoWidth"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="640"/>
+            </LinearLayout>
+            <View
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="1dp"
+                android:layout_width="match_parent"/>
+
+            <!-- Video Height -->
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:id="@+id/llVideoHeight"
+                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp">
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:text="Video Height"
+                    android:textSize="18sp"/>
+                <TextView
+                    android:id="@+id/tvVideoHeight"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="480"/>
+            </LinearLayout>
+            <View
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="1dp"
+                android:layout_width="match_parent"/>
+
+            <!-- Video Fps -->
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:id="@+id/llVideoFps"
+                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp">
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:text="Video Fps"
+                    android:textSize="18sp"/>
+                <TextView
+                    android:id="@+id/tvVideoFps"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="30"/>
+            </LinearLayout>
+            <View
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="1dp"
+                android:layout_width="match_parent"/>
+
+            <!-- First Video Bitrate -->
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:id="@+id/llfirstVideoBitrate"
+                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp">
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:text="First Video Bitrate"
+                    android:textSize="18sp"/>
+                <TextView
+                    android:id="@+id/tvFirstVideoBitrate"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="1000"/>
+            </LinearLayout>
+            <View
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="1dp"
+                android:layout_width="match_parent"/>
+
+            <!-- First Video Bitrate -->
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp">
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:text="Use Video"
+                    android:textSize="18sp"/>
+                <CheckBox
+                    android:checked="true"
+                    android:id="@+id/cbEnableVideoCall"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+            </LinearLayout>
+            <View
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="1dp"
+                android:layout_width="match_parent"/>
+
+
+            <RelativeLayout
+                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingRight="-20dp">
+                <Spinner
+                    android:entries="@array/audioType"
+                    android:gravity="right|center_vertical"
+                    android:id="@+id/spAudioType"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="match_parent"
+                    android:layout_width="130dp"/>
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Audio Type"
+                    android:textSize="18sp"/>
+            </RelativeLayout>
+            <View
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="1dp"
+                android:layout_width="match_parent"/>
+        </LinearLayout>
+    </ScrollView>
+-->
+    <Button
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:id="@+id/btnOk"
+        android:layout_alignParentBottom="true"
+        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:text="OK"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"/>
+</RelativeLayout>

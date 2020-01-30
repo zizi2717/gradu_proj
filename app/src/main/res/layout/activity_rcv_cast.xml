@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/rlRemoteView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <com.remotemonster.sdk.PercentFrameLayout
+                android:id="@+id/perFrameRemote"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <org.webrtc.SurfaceViewRenderer
+                    android:id="@+id/surfRendererRemote"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </com.remotemonster.sdk.PercentFrameLayout>
+            <ImageView
+                android:id="@+id/imvRemoteScreenChange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="3dp"
+                android:padding="5dp"
+                android:src="@android:drawable/ic_menu_manage"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_gravity="bottom"
+            android:id="@+id/Chatlayout"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:alpha="0.6"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_weight="1"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+                <ListView
+                    android:id="@+id/listView1"
+                    android:listSelector="#00000000"
+                    android:cacheColorHint="#00000000"
+                    android:divider="#000000"
+                    android:stackFromBottom="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:transcriptMode="alwaysScroll"/>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/sendMsgEditText"
+                    android:layout_weight="0.5"
+                    android:ems="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/sendMsgBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="전송"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </FrameLayout>
+</layout>
+
